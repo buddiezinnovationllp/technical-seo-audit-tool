@@ -6,14 +6,17 @@ auditButton.addEventListener('click', async (event) => {
   event.preventDefault();
   const url = document.getElementById('url').value;
   console.log(url);
-  const response = await fetch('audit', {
+  const response = await fetch('/audit', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ url: url }) // Ensure the property name is correct
+    body: JSON.stringify({ url: url })
   });
-  console.log(response);
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
   const auditResults = await response.json();
   const resultsHtml = `
     <h2>Audit Results</h2>
