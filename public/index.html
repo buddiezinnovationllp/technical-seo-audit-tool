@@ -1,20 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Technical SEO Audit Tool</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <h1>Technical SEO Audit Tool</h1>
-  <form id="audit-form">
-    <label for="url">Enter URL:</label>
-    <input type="url" id="url" name="url">
-    <button id="audit-button">Audit</button>
-  </form>
-  <div id="audit-results"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audit Results</title>
+    <!-- Tailwind CSS CDN link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
 
-  <script src="script.js"></script>
-</body>
+    <!-- JavaScript CDN link for accordion functionality -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Your script.js file -->
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1>Technical SEO Audit Tool</h1>
+    <form id="audit-form">
+      <label for="url">Enter URL:</label>
+      <input type="url" id="url" name="url" />
+      <button id="auditbutton">Audit</button>
+    </form>
+    <div class="container mx-auto p-4">
+      <h1 class="text-3xl font-bold mb-4">Audit Results</h1>
+      <div class="accordion" id="audit-results">
+        <div class="accordion-item bg-white shadow-md rounded mb-4">
+          <h2 class="accordion-header" id="heading-1">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-1"
+              aria-expanded="true"
+              aria-controls="collapse-1"
+            >
+              <span class="text-lg font-bold">Title</span>
+            </button>
+          </h2>
+          <div
+            id="collapse-1"
+            class="accordion-collapse collapse show"
+            aria-labelledby="heading-1"
+            data-bs-parent="#audit-results"
+          >
+            <div class="accordion-body">
+              <p id="title" class="text-lg"></p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item bg-white shadow-md rounded mb-4">
+          <h2 class="accordion-header" id="heading-2">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-2"
+              aria-expanded="false"
+              aria-controls="collapse-2"
+            >
+              <span class="text-lg font-bold">Meta Description</span>
+            </button>
+          </h2>
+          <div
+            id="collapse-2"
+            class="accordion-collapse collapse"
+            aria-labelledby="heading-2"
+            data-bs-parent="#audit-results"
+          >
+            <div class="accordion-body">
+              <p id="meta-description" class="text-lg"></p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item bg-white shadow-md rounded mb-4">
+          <h2 class="accordion-header" id="heading-3">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-3"
+              aria-expanded="false"
+              aria-controls="collapse-3"
+            >
+              <span class="text-lg font-bold">Header Tags</span>
+            </button>
+          </h2>
+          <div
+            id="collapse-3"
+            class="accordion-collapse collapse"
+            aria-labelledby="heading-3"
+            data-bs-parent="#audit-results"
+          >
+            <div class="accordion-body">
+              <ul id="header-tags" class="list-disc pl-4"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item bg-white shadow-md rounded mb-4">
+          <h2 class="accordion-header" id="heading-4">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-4"
+              aria-expanded="false"
+              aria-controls="collapse-4"
+            >
+              <span class="text-lg font-bold">Image Tags</span>
+            </button>
+          </h2>
+          <div
+            id="collapse-4"
+            class="accordion-collapse collapse"
+            aria-labelledby="heading-4"
+            data-bs-parent="#audit-results"
+          >
+            <div class="accordion-body">
+              <ul id="image-tags" class="list-disc pl-4"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item bg-white shadow-md rounded mb-4">
+          <h2 class="accordion-header" id="heading-5">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-5"
+              aria-expanded="false"
+              aria-controls="collapse-5"
+            >
+              <span class="text-lg font-bold">Internal Links</span>
+            </button>
+          </h2>
+          <div
+            id="collapse-5"
+            class="accordion-collapse collapse"
+            aria-labelledby="heading-5"
+            data-bs-parent="#audit-results"
+          >
+            <div class="accordion-body">
+              <ul id="internal-links" class="list-disc pl-4"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item bg-white shadow-md rounded mb-4">
+          <h2 class="accordion-header" id="heading-6">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-6"
+              aria-expanded="false"
+              aria-controls="collapse-6"
+            >
+              <span class="text-lg font-bold">Internal Links</span>
+            </button>
+          </h2>
+          <div
+            id="collapse-6"
+            class="accordion-collapse collapse"
+            aria-labelledby="heading-6"
+            data-bs-parent="#audit-results"
+          >
+            <div class="accordion-body">
+              <ul id="internal-links" class="list-disc pl-4"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item bg-white shadow-md rounded mb-4">
+          <h2 class="accordion-header" id="heading-7">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-7"
+              aria-expanded="false"
+              aria-controls="collapse-7"
+            >
+              <span class="text-lg font-bold">External Links</span>
+            </button>
+          </h2>
+          <div
+            id="collapse-7"
+            class="accordion-collapse collapse"
+            aria-labelledby="heading-7"
+            data-bs-parent="#audit-results"
+          >
+            <div class="accordion-body">
+              <ul id="external-links" class="list-disc pl-4"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item bg-white shadow-md rounded mb-4">
+          <h2 class="accordion-header" id="heading-8">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse-8"
+              aria-expanded="false"
+              aria-controls="collapse-8"
+            >
+              <span class="text-lg font-bold">Canonical Link</span>
+            </button>
+          </h2>
+          <div
+            id="collapse-8"
+            class="accordion-collapse collapse"
+            aria-labelledby="heading-8"
+            data-bs-parent="#audit-results"
+          >
+            <div class="accordion-body">
+              <p id="canonical-link" class="text-lg"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
